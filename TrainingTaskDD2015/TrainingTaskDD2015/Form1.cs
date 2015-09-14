@@ -15,6 +15,14 @@ namespace TrainingTaskDD2015
         public Form1()
         {
             InitializeComponent();
+            button1.Left = this.Width / 2 - button1.Width / 2;
+            button1.Top = this.Height / 2 - button1.Height / 2;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Task1 t1 = new Task1();
+            t1.ShowDialog();
         }
     }
 }
