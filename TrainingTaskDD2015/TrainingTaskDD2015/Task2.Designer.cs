@@ -69,22 +69,27 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(61, 105);
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(61, 103);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(135, 100);
             this.textBox1.TabIndex = 3;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(290, 100);
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(290, 98);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(135, 100);
             this.textBox2.TabIndex = 4;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox3
             // 
+            this.textBox3.Enabled = false;
             this.textBox3.Location = new System.Drawing.Point(518, 100);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
@@ -103,8 +108,7 @@
             // 
             // Task2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(681, 287);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox3);
@@ -113,8 +117,10 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "Task2";
-            this.Text = "Task2";
+            this.Text = "Task - 2";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,9 +131,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button4;
+        protected System.Windows.Forms.TextBox textBox1;
+        protected System.Windows.Forms.TextBox textBox2;
     }
 }

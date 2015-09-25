@@ -19,29 +19,17 @@ namespace TrainingTaskDD2015
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string tmp;
-            Truck truct = new Truck(Speed: 75, number_of_seats: 4, trailer: 2);
-            tmp = truct.Show();
-            tmp += "\r\n" + truct.Data();
-            textBox1.Text = tmp;
+            ShowData(new Truck(2), textBox1);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string tmp;
-            Car car = new Car(Speed: 180, number_of_seats: 5, car_roof: true);
-            tmp = car.Show();
-            tmp += "\r\n" + car.Data();
-            textBox2.Text = tmp;
+            ShowData(new Trolleybus("grey"), textBox2);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string tmp;
-            Trolleybus troll = new Trolleybus(Speed: 60, number_of_seats: 30, Color: "Blue");
-            tmp = troll.Show();
-            tmp += "\r\n" + troll.Data();
-            textBox3.Text = tmp;
+            ShowData(new Car(true), textBox3); 
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -50,70 +38,90 @@ namespace TrainingTaskDD2015
             textBox2.Text = "";
             textBox3.Text = "";
         }
+        
+        public void ShowData (Transport t, TextBox text)
+        {
+
+            text.Text = t.ToString();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
     public class Transport
     {
-        public double Speed;
-        public int number_of_seats;
+        public double getSpeed {get { return speed;} }
+        public double get_number_of_seats { get {return numb;} }
 
-        public string Data()
+        private double speed;
+        private double numb;
+
+        public Transport (double speeds, double numbers)
         {
-            string tmp = "Speed = " + Speed + "\r\n" + "Num_Of_Seats = " + number_of_seats;
-            return tmp;
+            speed = speeds;
+            numb = numbers;
+        }
+        public override string ToString()
+        {
+            return ("Speed = " + speed + Environment.NewLine + "Num_Of_Seats = " + numb + "\r\n");
         }
     }
 
     public class Trolleybus : Transport
     {
-        public string Color;
+        public string getColor { get { return color;}}
 
-        public Trolleybus(double Speed, int number_of_seats, string Color)
+        private string color;
+
+        public Trolleybus(string Blue):base(50,20)
         {
-            this.Speed = Speed;
-            this.number_of_seats = number_of_seats;
-            this.Color = Color;
+            color = Blue;
         }
-
-        public string Show()
+        
+        public override string ToString()
         {
-            string tmp = "Name - Trolleybas" + "\r\n" + "Color = " + Color;
-            return tmp;
+            return ("Name - Trolleybas" + Environment.NewLine + base.ToString() + "Color = " + color);
         }
     }
 
     public class Car : Transport
     {
-        public bool car_roof;
+        public bool get_car_roof { get { return roof; } }
 
-        public Car(double Speed, int number_of_seats, bool car_roof)
+        private bool roof;
+
+        public Car(bool ro):base(120, 4)
         {
-            this.Speed = Speed;
-            this.number_of_seats = number_of_seats;
-            this.car_roof = car_roof;
+            roof = ro;
         }
 
-        public string Show()
+        public override string ToString()
         {
-            string tmp = "Name - Car" + "\r\n" + "Car roof = " + car_roof;
-            return tmp;
+            return ("Name - Car" + Environment.NewLine + base.ToString() + "Car roof = " + roof);
         }
     }
 
     public class Truck : Transport
     {
-        public int trailer;
+        public int get_trailer { get { return trailer; }  }
+        private int trailer;
 
-        public Truck(double Speed, int number_of_seats, int trailer)
+        public Truck(int trail):base(75,3)
         {
-            this.Speed = Speed;
-            this.number_of_seats = number_of_seats;
-            this.trailer = trailer;
+            trailer = trail;
         }
 
-        public string Show()
+        public override string ToString()
         {
-            string tmp = "Name - Truck" + "\r\n" + "Trailer = " + trailer;
-            return tmp;
+            return ("Name - Truck" + Environment.NewLine + base.ToString() + "Trailer = " + trailer);
         }
     }
 
