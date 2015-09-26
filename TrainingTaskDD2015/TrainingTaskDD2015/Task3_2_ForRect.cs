@@ -10,28 +10,24 @@ using System.Windows.Forms;
 
 namespace TrainingTaskDD2015
 {
-    public partial class Form1 : Form
+    public partial class Task3_2_ForRect : Form
     {
-        public Form1()
+        public int Value;
+        public Task3_2_ForRect()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Task1 t1 = new Task1();
-            t1.ShowDialog();
+            Value = Convert.ToInt32(textBox1.Text);
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Task2 t2 = new Task2();
-            t2.ShowDialog();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            new Task3().ShowDialog();
+            this.Close();
         }
     }
 }

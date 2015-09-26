@@ -41,7 +41,6 @@ namespace TrainingTaskDD2015
         
         public void ShowData (Transport t, TextBox text)
         {
-
             text.Text = t.ToString();
         }
 
